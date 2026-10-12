@@ -226,22 +226,9 @@ export default async function handler(req, res) {
         ]);
 
         const model = makeModel(history);
-
-        return fixtures.map(f => ({
-          id: f.fixture?.id,
-          date: f.fixture?.date,
-          status: f.fixture?.status?.short,
-          league: league.name,
-          country: league.country,
-          home: f.teams?.home?.name,
-          away: f.teams?.away?.name,
-          homeLogo: f.teams?.home?.logo,
-          awayLogo: f.teams?.away?.logo,
-          prediction: predict(f, model),
-          historyMatches: model.historyCount
-        }));
-      })
-    );
+        return fixtures
+  .filter(f => Number(f.league?.id) === league.id)
+  .map(f => ({
 
     const matches = results
       .flat()
