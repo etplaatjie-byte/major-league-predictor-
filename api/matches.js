@@ -209,7 +209,6 @@ export default async function handler(req, res) {
     const results = await Promise.all(
       LEAGUES.map(async league => {
         const fixturePath = new URLSearchParams({
-          league: String(league.id),
           from,
           to,
           timezone: 'Africa/Windhoek'
