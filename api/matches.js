@@ -211,14 +211,13 @@ export default async function handler(req, res) {
         const fixturePath = new URLSearchParams({
           from,
           to,
-          timezone: 'Africa/Windhoek'
-        });
-
-        const historyPath = new URLSearchParams({
-          league: String(league.id),
-          season: '2024',
-          status: 'FT'
-        });
+          timezone: 'Africa/const fixturePath = new URLSearchParams({
+  league: String(league.id),
+  season: '2026',
+  from,
+  to,
+  timezone: 'Africa/Windhoek'
+});
 
         const [fixtures, history] = await Promise.all([
           api(`fixtures?${fixturePath.toString()}`),
